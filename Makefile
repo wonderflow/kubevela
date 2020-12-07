@@ -70,6 +70,8 @@ cross-build:
 
 compress:
 	( \
+		echo "===\nVERSION: $(VELA_VERSION)" >> README.md && \
+		echo "GIT_COMMIT: $(GIT_COMMIT)\n===" >> README.md && \
 		cd _bin && \
 		$(DIST_DIRS) cp ../LICENSE {} \; && \
 		$(DIST_DIRS) cp ../README.md {} \; && \

@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch: {}
 
 jobs:
   build:
@@ -41,12 +42,6 @@ jobs:
         run: make cross-build
       - name: Run compress binary
         run: make compress
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
       - name: Upload Linux amd64 tar.gz
         uses: actions/upload-release-asset@v1.0.2
         with:
